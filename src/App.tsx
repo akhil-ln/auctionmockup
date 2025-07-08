@@ -481,22 +481,22 @@ function App() {
                           
                           {/* Action Buttons - Consistent width and spacing */}
                           <div className="hidden lg:flex items-center space-x-2 ml-4">
-                            <button className="inline-flex items-center justify-center px-3 py-1.5 bg-blue-600 text-white rounded text-xs font-medium hover:bg-blue-700 transition-colors w-24">
+                            <button className="inline-flex items-center justify-center px-3 py-1.5 bg-slate-600 text-white rounded text-xs font-medium hover:bg-slate-700 transition-colors w-24">
                               <Edit3 className="w-3 h-3 mr-1.5" />
                               <span className="hidden xl:inline">Edit</span>
                               <span className="xl:hidden">Edit</span>
                             </button>
-                            <button className="inline-flex items-center justify-center px-3 py-1.5 bg-blue-600 text-white rounded text-xs font-medium hover:bg-blue-700 transition-colors w-24">
+                            <button className="inline-flex items-center justify-center px-3 py-1.5 bg-slate-600 text-white rounded text-xs font-medium hover:bg-slate-700 transition-colors w-24">
                               <UserCheck className="w-3 h-3 mr-1.5" />
                               <span className="hidden xl:inline">Shortlist</span>
                               <span className="xl:hidden">List</span>
                             </button>
-                            <button className="inline-flex items-center justify-center px-3 py-1.5 bg-blue-600 text-white rounded text-xs font-medium hover:bg-blue-700 transition-colors w-24">
+                            <button className="inline-flex items-center justify-center px-3 py-1.5 bg-slate-600 text-white rounded text-xs font-medium hover:bg-slate-700 transition-colors w-24">
                               <UserPlus className="w-3 h-3 mr-1.5" />
                               <span className="hidden xl:inline">Add User</span>
                               <span className="xl:hidden">Add</span>
                             </button>
-                            <button className="inline-flex items-center justify-center px-3 py-1.5 bg-blue-600 text-white rounded text-xs font-medium hover:bg-blue-700 transition-colors w-24">
+                            <button className="inline-flex items-center justify-center px-3 py-1.5 bg-slate-600 text-white rounded text-xs font-medium hover:bg-slate-700 transition-colors w-24">
                               <Upload className="w-3 h-3 mr-1.5" />
                               <span className="hidden xl:inline">Upload</span>
                               <span className="xl:hidden">Upload</span>
@@ -522,30 +522,7 @@ function App() {
                             
                             {/* Status Counts */}
                             <div className="flex items-center space-x-2">
-                              {statusCounts.upcoming > 0 && (
-                                <div className="flex items-center space-x-1 text-xs">
-                                  <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-                                  <span className="text-gray-600">{statusCounts.upcoming} Upcoming</span>
-                                </div>
-                              )}
-                              {statusCounts.active > 0 && (
-                                <div className="flex items-center space-x-1 text-xs">
-                                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                                  <span className="text-gray-600">{statusCounts.active} Active</span>
-                                </div>
-                              )}
-                              {statusCounts.paused > 0 && (
-                                <div className="flex items-center space-x-1 text-xs">
-                                  <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                                  <span className="text-gray-600">{statusCounts.paused} Paused</span>
-                                </div>
-                              )}
-                              {statusCounts.closed > 0 && (
-                                <div className="flex items-center space-x-1 text-xs">
-                                  <div className="w-3 h-3 bg-gray-500 rounded-full"></div>
-                                  <span className="text-gray-600">{statusCounts.closed} Closed</span>
-                                </div>
-                              )}
+                              {/* Removed repetitive status counts as requested */}
                             </div>
                             
                             <button className="p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
@@ -564,19 +541,19 @@ function App() {
                         
                         {/* Mobile Action Buttons */}
                         <div className="lg:hidden mt-3 flex flex-wrap gap-2">
-                          <button className="inline-flex items-center px-2 py-1 bg-blue-600 text-white rounded text-xs font-medium hover:bg-blue-700 transition-colors">
+                          <button className="inline-flex items-center px-2 py-1 bg-slate-600 text-white rounded text-xs font-medium hover:bg-slate-700 transition-colors">
                             <Edit3 className="w-3 h-3 mr-1" />
                             Edit
                           </button>
-                          <button className="inline-flex items-center px-2 py-1 bg-blue-600 text-white rounded text-xs font-medium hover:bg-blue-700 transition-colors">
+                          <button className="inline-flex items-center px-2 py-1 bg-slate-600 text-white rounded text-xs font-medium hover:bg-slate-700 transition-colors">
                             <UserCheck className="w-3 h-3 mr-1" />
                             Shortlist
                           </button>
-                          <button className="inline-flex items-center px-2 py-1 bg-blue-600 text-white rounded text-xs font-medium hover:bg-blue-700 transition-colors">
+                          <button className="inline-flex items-center px-2 py-1 bg-slate-600 text-white rounded text-xs font-medium hover:bg-slate-700 transition-colors">
                             <UserPlus className="w-3 h-3 mr-1" />
                             Add User
                           </button>
-                          <button className="inline-flex items-center px-2 py-1 bg-blue-600 text-white rounded text-xs font-medium hover:bg-blue-700 transition-colors">
+                          <button className="inline-flex items-center px-2 py-1 bg-slate-600 text-white rounded text-xs font-medium hover:bg-slate-700 transition-colors">
                             <Upload className="w-3 h-3 mr-1" />
                             Upload
                           </button>
@@ -610,8 +587,8 @@ function App() {
                                   
                                   <p className="text-gray-600 mb-2 text-xs">{auction.description}</p>
                                   
-                                  {/* Publish Checkbox and Action Buttons */}
-                                  <div className="flex items-center justify-between mb-3">
+                                  {/* Publish Checkbox and Action Buttons - Grouped Together */}
+                                  <div className="flex items-center space-x-3 mb-3">
                                     <div className="flex items-center space-x-2">
                                       <input
                                         type="checkbox"
@@ -655,7 +632,7 @@ function App() {
                                           </button>
                                         </>
                                       )}
-                                    </div>
+                                     </div>
                                   </div>
                                   
                                   <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
