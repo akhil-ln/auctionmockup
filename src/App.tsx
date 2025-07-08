@@ -37,6 +37,8 @@ interface Auction {
   status: 'upcoming' | 'active' | 'paused' | 'closed';
   participants: number;
   currentBid?: number;
+  closedDate?: string;
+  closedTime?: string;
 }
 
 interface CompanyGroup {
@@ -96,6 +98,8 @@ const mockCompanyGroups: CompanyGroup[] = [
         status: 'closed',
         participants: 15,
         currentBid: 242000,
+        closedDate: '22-06-2025',
+        closedTime: '16:45:30',
       },
       {
         id: '445822',
@@ -193,6 +197,8 @@ const mockCompanyGroups: CompanyGroup[] = [
         status: 'closed',
         participants: 11,
         currentBid: 268000,
+        closedDate: '28-06-2025',
+        closedTime: '10:30:15',
       }
     ]
   }
@@ -284,7 +290,7 @@ function App() {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-8">
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                <div className="w-10 h-10 flex items-center justify-center">
                   <img src="/image.png" alt="LoRRI" className="w-8 h-8 object-contain" />
                 </div>
                 <div>
@@ -570,9 +576,14 @@ function App() {
                                   <div className="flex items-center space-x-2 mb-1">
                                     <span className="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded">#{auction.id}</span>
                                     <h4 className="text-sm font-semibold text-gray-900">{auction.title}</h4>
-                                    <div className="hidden sm:flex items-center space-x-2 text-sm text-gray-500">
+                                    <div className="hidden sm:flex items-center space-x-2 text-xs text-gray-500">
                                       <Calendar className="w-4 h-4" />
-                                      <span className="text-xs">{auction.startDate} at {auction.startTime}</span>
+                                      <span>
+                                        {auction.status === 'closed' 
+                                          ? `Started: ${auction.startDate} ${auction.startTime} | Closed: ${auction.closedDate} ${auction.closedTime}`
+                                          : `${auction.startDate} at ${auction.startTime}`
+                                        }
+                                      </span>
                                     </div>
                                     <div className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border ${getStatusColor(auction.status)}`}>
                                       {getStatusIcon(auction.status)}
@@ -581,9 +592,14 @@ function App() {
                                   </div>
                                   
                                   {/* Mobile Date/Time */}
-                                  <div className="sm:hidden flex items-center space-x-2 text-sm text-gray-500 mb-2">
+                                  <div className="sm:hidden flex items-center space-x-2 text-xs text-gray-500 mb-2">
                                     <Calendar className="w-4 h-4" />
-                                    <span className="text-xs">{auction.startDate} at {auction.startTime}</span>
+                                    <span>
+                                      {auction.status === 'closed' 
+                                        ? `Started: ${auction.startDate} ${auction.startTime} | Closed: ${auction.closedDate} ${auction.closedTime}`
+                                        : `${auction.startDate} at ${auction.startTime}`
+                                      }
+                                    </span>
                                   </div>
                                   
                                   <p className="text-gray-600 mb-2 text-xs">{auction.description}</p>
@@ -632,7 +648,7 @@ function App() {
                                     </div>
                                     
                                     {/* Publish Checkbox */}
-                                    <div className="bg-gray-50 rounded-lg p-1.5 flex flex-col justify-center">
+                                    <div className="rounded-lg p-1.5 flex flex-col justify-center">
                                       <div className="flex items-center space-x-2">
                                         <input
                                           type="checkbox"
@@ -647,7 +663,7 @@ function App() {
                                     </div>
                                     
                                     {/* Action Buttons */}
-                                    <div className="bg-gray-50 rounded-lg p-1.5 flex items-center justify-center">
+                                    <div className="rounded-lg p-1.5 flex items-center justify-center">
                                       <div className="flex items-center space-x-1">
                                         {auction.status === 'upcoming' && (
                                           <button className="inline-flex items-center px-2 py-1 bg-green-600 text-white rounded text-xs font-medium hover:bg-green-700 transition-colors">
