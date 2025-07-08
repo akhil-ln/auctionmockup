@@ -254,16 +254,16 @@ function App() {
         {/* Page Title & Actions */}
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h2 className="text-xl font-bold text-gray-900">Auction Management</h2>
-            <p className="text-gray-600 mt-1 text-sm">Manage and monitor your logistics reverse auctions</p>
+            <h2 className="text-lg font-bold text-gray-900">Auction Management</h2>
+            <p className="text-gray-600 mt-0.5 text-xs">Manage and monitor your logistics reverse auctions</p>
           </div>
           
           <div className="flex items-center space-x-3">
-            <button className="inline-flex items-center px-3 py-1.5 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors">
+            <button className="inline-flex items-center px-2 py-1 border border-gray-300 rounded-lg text-xs font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors">
               <Download className="w-4 h-4 mr-2" />
               Export Data
             </button>
-            <button className="inline-flex items-center px-3 py-1.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg text-sm font-medium hover:from-blue-700 hover:to-purple-700 transition-all transform hover:scale-105">
+            <button className="inline-flex items-center px-2 py-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg text-xs font-medium hover:from-blue-700 hover:to-purple-700 transition-all transform hover:scale-105">
               <Plus className="w-4 h-4 mr-2" />
               Create Auction
             </button>
@@ -311,8 +311,8 @@ function App() {
         )}
 
         {/* Filters & Search */}
-        <div className="bg-white rounded-lg border border-gray-200 p-4 mb-4">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
+        <div className="bg-white rounded-lg border border-gray-200 p-2 mb-3">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-2 lg:space-y-0">
             <div className="flex-1 max-w-md">
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
@@ -321,13 +321,13 @@ function App() {
                   placeholder="Search auctions, companies..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+                  className="w-full pl-10 pr-4 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-xs"
                 />
               </div>
             </div>
             
-            <div className="flex items-center space-x-3">
-              <button className="inline-flex items-center px-3 py-1.5 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors">
+            <div className="flex items-center space-x-2">
+              <button className="inline-flex items-center px-2 py-1 border border-gray-300 rounded-lg text-xs font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors">
                 <Filter className="w-4 h-4 mr-2" />
                 Filters
               </button>
@@ -382,7 +382,7 @@ function App() {
                   return (
                     <div key={group.companyName} className="border border-gray-200 rounded-lg overflow-hidden">
                       {/* Company Header */}
-                      <div className="bg-gray-50 border-b border-gray-200 p-3">
+                      <div className="bg-gray-50 border-b border-gray-200 p-2">
                         <div className="flex items-center justify-between">
                           <div className="flex items-center space-x-4">
                             <input
@@ -394,7 +394,7 @@ function App() {
                             
                             <button
                               onClick={() => toggleAccordion(group.companyName)}
-                              className="flex items-center space-x-2 text-left hover:bg-gray-100 rounded-lg p-2 -m-2 transition-colors"
+                              className="flex items-center space-x-2 text-left hover:bg-gray-100 rounded-lg p-1 -m-1 transition-colors"
                             >
                               {group.isExpanded ? (
                                 <ChevronDown className="w-5 h-5 text-gray-500" />
@@ -403,7 +403,7 @@ function App() {
                               )}
                               
                               <div className="flex items-center space-x-3">
-                                <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+                                <div className="w-6 h-6 bg-blue-100 rounded-lg flex items-center justify-center">
                                   <Building2 className="w-4 h-4 text-blue-600" />
                                 </div>
                                 <div>
@@ -414,12 +414,32 @@ function App() {
                             </button>
                           </div>
                           
+                          {/* Action Buttons - Inline with company name */}
+                          <div className="flex items-center space-x-2">
+                            <button className="inline-flex items-center px-2 py-1 bg-blue-600 text-white rounded text-xs font-medium hover:bg-blue-700 transition-colors">
+                              <Edit3 className="w-3 h-3 mr-1" />
+                              Edit Auctions
+                            </button>
+                            <button className="inline-flex items-center px-2 py-1 bg-green-600 text-white rounded text-xs font-medium hover:bg-green-700 transition-colors">
+                              <UserCheck className="w-3 h-3 mr-1" />
+                              Shortlist Transporters
+                            </button>
+                            <button className="inline-flex items-center px-2 py-1 bg-purple-600 text-white rounded text-xs font-medium hover:bg-purple-700 transition-colors">
+                              <UserPlus className="w-3 h-3 mr-1" />
+                              Add User
+                            </button>
+                            <button className="inline-flex items-center px-2 py-1 bg-orange-600 text-white rounded text-xs font-medium hover:bg-orange-700 transition-colors">
+                              <Upload className="w-3 h-3 mr-1" />
+                              Bulk Upload
+                            </button>
+                          </div>
+                          
                           <div className="flex items-center space-x-4">
                             {/* Participants Count - More Prominent */}
-                            <div className="flex items-center space-x-2 bg-white rounded-lg px-2 py-1.5 border border-gray-200">
+                            <div className="flex items-center space-x-2 bg-white rounded-lg px-2 py-1 border border-gray-200">
                               <Users className="w-4 h-4 text-blue-600" />
                               <div className="text-center">
-                                <div className="text-sm font-bold text-blue-600">{totalParticipants}</div>
+                                <div className="text-xs font-bold text-blue-600">{totalParticipants}</div>
                                 <div className="text-xs text-gray-500">Participants</div>
                               </div>
                             </div>
@@ -461,12 +481,12 @@ function App() {
 
                       {/* Auction Cards */}
                       {group.isExpanded && (
-                        <div className="p-3 space-y-3">
+                        <div className="p-2 space-y-2">
                           {group.auctions.map((auction) => (
-                            <div key={auction.id} className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
-                              <div className="flex items-start justify-between mb-3">
+                            <div key={auction.id} className="bg-white border border-gray-200 rounded-lg p-3 hover:shadow-md transition-shadow">
+                              <div className="flex items-start justify-between mb-2">
                                 <div className="flex-1">
-                                  <div className="flex items-center space-x-2 mb-2">
+                                  <div className="flex items-center space-x-2 mb-1">
                                     <h4 className="text-sm font-semibold text-gray-900">{auction.title}</h4>
                                     <div className="flex items-center space-x-2 text-sm text-gray-500">
                                       <Calendar className="w-4 h-4" />
@@ -478,49 +498,49 @@ function App() {
                                     </div>
                                   </div>
                                   
-                                  <p className="text-gray-600 mb-3 text-sm">{auction.description}</p>
+                                  <p className="text-gray-600 mb-2 text-xs">{auction.description}</p>
                                   
-                                  <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-                                    <div className="bg-gray-50 rounded-lg p-2">
+                                  <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
+                                    <div className="bg-gray-50 rounded-lg p-1.5">
                                       <div className="flex items-center space-x-2 mb-1">
                                         <span className="text-xs font-medium text-gray-500 uppercase">Opening Price</span>
                                       </div>
-                                      <p className="text-sm font-semibold text-gray-900">₹{auction.openingPrice.toLocaleString()}</p>
+                                      <p className="text-xs font-semibold text-gray-900">₹{auction.openingPrice.toLocaleString()}</p>
                                     </div>
                                     
                                     {auction.currentBid && (
-                                      <div className="bg-green-50 rounded-lg p-2">
+                                      <div className="bg-green-50 rounded-lg p-1.5">
                                         <div className="flex items-center space-x-2 mb-1">
                                           <TrendingDown className="w-4 h-4 text-green-600" />
                                           <span className="text-xs font-medium text-green-600 uppercase">Current Bid</span>
                                         </div>
-                                        <p className="text-sm font-semibold text-green-700">₹{auction.currentBid.toLocaleString()}</p>
+                                        <p className="text-xs font-semibold text-green-700">₹{auction.currentBid.toLocaleString()}</p>
                                       </div>
                                     )}
                                     
-                                    <div className="bg-gray-50 rounded-lg p-2">
+                                    <div className="bg-gray-50 rounded-lg p-1.5">
                                       <div className="flex items-center space-x-2 mb-1">
                                         <TrendingDown className="w-4 h-4 text-gray-500" />
                                         <span className="text-xs font-medium text-gray-500 uppercase">Bid Decrement</span>
                                       </div>
-                                      <p className="text-sm font-semibold text-gray-900">₹{auction.bidDecrement}</p>
+                                      <p className="text-xs font-semibold text-gray-900">₹{auction.bidDecrement}</p>
                                     </div>
                                     
-                                    <div className="bg-gray-50 rounded-lg p-2">
+                                    <div className="bg-gray-50 rounded-lg p-1.5">
                                       <div className="flex items-center space-x-2 mb-1">
                                         <Clock className="w-4 h-4 text-gray-500" />
                                         <span className="text-xs font-medium text-gray-500 uppercase">Duration</span>
                                       </div>
-                                      <p className="text-sm font-semibold text-gray-900">{auction.duration} min</p>
+                                      <p className="text-xs font-semibold text-gray-900">{auction.duration} min</p>
                                     </div>
                                     
                                     {/* Individual Auction Participants - Prominent */}
-                                    <div className="bg-blue-50 rounded-lg p-2">
+                                    <div className="bg-blue-50 rounded-lg p-1.5">
                                       <div className="flex items-center space-x-2 mb-1">
                                         <Users className="w-4 h-4 text-blue-600" />
                                         <span className="text-xs font-medium text-blue-600 uppercase">Participants</span>
                                       </div>
-                                      <p className="text-sm font-semibold text-blue-700">{auction.participants}</p>
+                                      <p className="text-xs font-semibold text-blue-700">{auction.participants}</p>
                                     </div>
                                   </div>
                                 </div>
@@ -536,26 +556,6 @@ function App() {
                               </div>
                             </div>
                           ))}
-                          
-                          {/* Action Buttons - Moved inside accordion */}
-                          <div className="flex items-center space-x-2 pt-2 border-t border-gray-100">
-                            <button className="inline-flex items-center px-3 py-1.5 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors">
-                              <Edit3 className="w-4 h-4 mr-1.5" />
-                              Edit Auctions
-                            </button>
-                            <button className="inline-flex items-center px-3 py-1.5 bg-green-600 text-white rounded-lg text-sm font-medium hover:bg-green-700 transition-colors">
-                              <UserCheck className="w-4 h-4 mr-1.5" />
-                              Shortlist Transporters
-                            </button>
-                            <button className="inline-flex items-center px-3 py-1.5 bg-purple-600 text-white rounded-lg text-sm font-medium hover:bg-purple-700 transition-colors">
-                              <UserPlus className="w-4 h-4 mr-1.5" />
-                              Add User
-                            </button>
-                            <button className="inline-flex items-center px-3 py-1.5 bg-orange-600 text-white rounded-lg text-sm font-medium hover:bg-orange-700 transition-colors">
-                              <Upload className="w-4 h-4 mr-1.5" />
-                              Bulk Upload
-                            </button>
-                          </div>
                         </div>
                       )}
                     </div>
