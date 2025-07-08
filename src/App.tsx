@@ -324,11 +324,11 @@ function App() {
           </div>
           
           <div className="flex items-center space-x-3">
-            <button className="inline-flex items-center px-2 py-1 border border-gray-300 rounded-lg text-xs font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors">
+            <button className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors">
               <Download className="w-4 h-4 mr-2" />
               Export Data
             </button>
-            <button className="inline-flex items-center px-2 py-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg text-xs font-medium hover:from-blue-700 hover:to-purple-700 transition-all transform hover:scale-105">
+            <button className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg text-sm font-medium hover:from-blue-700 hover:to-purple-700 transition-all transform hover:scale-105">
               <Plus className="w-4 h-4 mr-2" />
               Create Auction
             </button>
@@ -486,17 +486,17 @@ function App() {
                               <span className="hidden xl:inline">Edit</span>
                               <span className="xl:hidden">Edit</span>
                             </button>
-                            <button className="inline-flex items-center justify-center px-3 py-1.5 bg-green-600 text-white rounded text-xs font-medium hover:bg-green-700 transition-colors w-24">
+                            <button className="inline-flex items-center justify-center px-3 py-1.5 bg-blue-600 text-white rounded text-xs font-medium hover:bg-blue-700 transition-colors w-24">
                               <UserCheck className="w-3 h-3 mr-1.5" />
                               <span className="hidden xl:inline">Shortlist</span>
                               <span className="xl:hidden">List</span>
                             </button>
-                            <button className="inline-flex items-center justify-center px-3 py-1.5 bg-purple-600 text-white rounded text-xs font-medium hover:bg-purple-700 transition-colors w-24">
+                            <button className="inline-flex items-center justify-center px-3 py-1.5 bg-blue-600 text-white rounded text-xs font-medium hover:bg-blue-700 transition-colors w-24">
                               <UserPlus className="w-3 h-3 mr-1.5" />
                               <span className="hidden xl:inline">Add User</span>
                               <span className="xl:hidden">Add</span>
                             </button>
-                            <button className="inline-flex items-center justify-center px-3 py-1.5 bg-orange-600 text-white rounded text-xs font-medium hover:bg-orange-700 transition-colors w-24">
+                            <button className="inline-flex items-center justify-center px-3 py-1.5 bg-blue-600 text-white rounded text-xs font-medium hover:bg-blue-700 transition-colors w-24">
                               <Upload className="w-3 h-3 mr-1.5" />
                               <span className="hidden xl:inline">Upload</span>
                               <span className="xl:hidden">Upload</span>
@@ -568,15 +568,15 @@ function App() {
                             <Edit3 className="w-3 h-3 mr-1" />
                             Edit
                           </button>
-                          <button className="inline-flex items-center px-2 py-1 bg-green-600 text-white rounded text-xs font-medium hover:bg-green-700 transition-colors">
+                          <button className="inline-flex items-center px-2 py-1 bg-blue-600 text-white rounded text-xs font-medium hover:bg-blue-700 transition-colors">
                             <UserCheck className="w-3 h-3 mr-1" />
                             Shortlist
                           </button>
-                          <button className="inline-flex items-center px-2 py-1 bg-purple-600 text-white rounded text-xs font-medium hover:bg-purple-700 transition-colors">
+                          <button className="inline-flex items-center px-2 py-1 bg-blue-600 text-white rounded text-xs font-medium hover:bg-blue-700 transition-colors">
                             <UserPlus className="w-3 h-3 mr-1" />
                             Add User
                           </button>
-                          <button className="inline-flex items-center px-2 py-1 bg-orange-600 text-white rounded text-xs font-medium hover:bg-orange-700 transition-colors">
+                          <button className="inline-flex items-center px-2 py-1 bg-blue-600 text-white rounded text-xs font-medium hover:bg-blue-700 transition-colors">
                             <Upload className="w-3 h-3 mr-1" />
                             Upload
                           </button>
@@ -610,12 +610,60 @@ function App() {
                                   
                                   <p className="text-gray-600 mb-2 text-xs">{auction.description}</p>
                                   
+                                  {/* Publish Checkbox and Action Buttons */}
+                                  <div className="flex items-center justify-between mb-3">
+                                    <div className="flex items-center space-x-2">
+                                      <input
+                                        type="checkbox"
+                                        id={`publish-${auction.id}`}
+                                        className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                                        defaultChecked={auction.status !== 'upcoming'}
+                                      />
+                                      <label htmlFor={`publish-${auction.id}`} className="text-xs font-medium text-gray-700">
+                                        Publish
+                                      </label>
+                                    </div>
+                                    
+                                    <div className="flex items-center space-x-2">
+                                      {auction.status === 'upcoming' && (
+                                        <button className="inline-flex items-center px-3 py-1 bg-green-600 text-white rounded text-xs font-medium hover:bg-green-700 transition-colors">
+                                          <Play className="w-3 h-3 mr-1" />
+                                          Start Auction
+                                        </button>
+                                      )}
+                                      {auction.status === 'active' && (
+                                        <>
+                                          <button className="inline-flex items-center px-3 py-1 bg-yellow-600 text-white rounded text-xs font-medium hover:bg-yellow-700 transition-colors">
+                                            <Pause className="w-3 h-3 mr-1" />
+                                            Pause
+                                          </button>
+                                          <button className="inline-flex items-center px-3 py-1 bg-red-600 text-white rounded text-xs font-medium hover:bg-red-700 transition-colors">
+                                            <CheckCircle className="w-3 h-3 mr-1" />
+                                            Close Auction
+                                          </button>
+                                        </>
+                                      )}
+                                      {auction.status === 'paused' && (
+                                        <>
+                                          <button className="inline-flex items-center px-3 py-1 bg-green-600 text-white rounded text-xs font-medium hover:bg-green-700 transition-colors">
+                                            <Play className="w-3 h-3 mr-1" />
+                                            Resume
+                                          </button>
+                                          <button className="inline-flex items-center px-3 py-1 bg-red-600 text-white rounded text-xs font-medium hover:bg-red-700 transition-colors">
+                                            <CheckCircle className="w-3 h-3 mr-1" />
+                                            Close Auction
+                                          </button>
+                                        </>
+                                      )}
+                                    </div>
+                                  </div>
+                                  
                                   <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
                                     <div className="bg-gray-50 rounded-lg p-1.5">
                                       <div className="flex items-center space-x-2 mb-1">
                                         <span className="text-xs font-medium text-gray-500 uppercase">Opening Price</span>
                                       </div>
-                                      <p className="text-xs font-semibold text-gray-900">₹{auction.openingPrice.toLocaleString()}</p>
+                                      <p className="text-sm font-bold text-gray-900">₹{auction.openingPrice.toLocaleString()}</p>
                                     </div>
                                     
                                     {auction.currentBid && (
@@ -624,7 +672,7 @@ function App() {
                                           <TrendingDown className="w-4 h-4 text-green-600" />
                                           <span className="text-xs font-medium text-green-600 uppercase">Current Bid</span>
                                         </div>
-                                        <p className="text-xs font-semibold text-green-700">₹{auction.currentBid.toLocaleString()}</p>
+                                        <p className="text-sm font-bold text-green-700">₹{auction.currentBid.toLocaleString()}</p>
                                       </div>
                                     )}
                                     
@@ -633,7 +681,7 @@ function App() {
                                         <TrendingDown className="w-4 h-4 text-gray-500" />
                                         <span className="text-xs font-medium text-gray-500 uppercase">Bid Decrement</span>
                                       </div>
-                                      <p className="text-xs font-semibold text-gray-900">₹{auction.bidDecrement}</p>
+                                      <p className="text-sm font-bold text-gray-900">₹{auction.bidDecrement}</p>
                                     </div>
                                     
                                     <div className="bg-gray-50 rounded-lg p-1.5">
@@ -641,7 +689,7 @@ function App() {
                                         <Clock className="w-4 h-4 text-gray-500" />
                                         <span className="text-xs font-medium text-gray-500 uppercase">Duration</span>
                                       </div>
-                                      <p className="text-xs font-semibold text-gray-900">{auction.duration} min</p>
+                                      <p className="text-sm font-bold text-gray-900">{auction.duration} min</p>
                                     </div>
                                     
                                     {/* Individual Auction Participants - Prominent */}
@@ -650,7 +698,7 @@ function App() {
                                         <Users className="w-4 h-4 text-blue-600" />
                                         <span className="text-xs font-medium text-blue-600 uppercase">Participants</span>
                                       </div>
-                                      <p className="text-xs font-semibold text-blue-700">{auction.participants}</p>
+                                      <p className="text-sm font-bold text-blue-700">{auction.participants}</p>
                                     </div>
                                   </div>
                                 </div>
