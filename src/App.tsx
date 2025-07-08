@@ -289,7 +289,7 @@ function App() {
                 </div>
                 <div>
                   <h1 className="text-xl font-bold text-gray-900">LoRRI</h1>
-                  <p className="text-sm text-gray-500">Logistics Reverse Auctions</p>
+                  <p className="text-sm text-gray-500">LoRRI Reverse Auctions</p>
                 </div>
               </div>
             </div>
@@ -481,22 +481,22 @@ function App() {
                           
                           {/* Action Buttons - Consistent width and spacing */}
                           <div className="hidden lg:flex items-center space-x-2 ml-4">
-                            <button className="inline-flex items-center justify-center px-3 py-1.5 bg-slate-600 text-white rounded text-xs font-medium hover:bg-slate-700 transition-colors w-24">
+                            <button className="inline-flex items-center justify-center px-3 py-1.5 text-white rounded text-xs font-medium transition-colors w-24" style={{backgroundColor: '#54af3a'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#4a9633'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#54af3a'}>
                               <Edit3 className="w-3 h-3 mr-1.5" />
                               <span className="hidden xl:inline">Edit</span>
                               <span className="xl:hidden">Edit</span>
                             </button>
-                            <button className="inline-flex items-center justify-center px-3 py-1.5 bg-slate-600 text-white rounded text-xs font-medium hover:bg-slate-700 transition-colors w-24">
+                            <button className="inline-flex items-center justify-center px-3 py-1.5 text-white rounded text-xs font-medium transition-colors w-24" style={{backgroundColor: '#54af3a'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#4a9633'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#54af3a'}>
                               <UserCheck className="w-3 h-3 mr-1.5" />
                               <span className="hidden xl:inline">Shortlist</span>
                               <span className="xl:hidden">List</span>
                             </button>
-                            <button className="inline-flex items-center justify-center px-3 py-1.5 bg-slate-600 text-white rounded text-xs font-medium hover:bg-slate-700 transition-colors w-24">
+                            <button className="inline-flex items-center justify-center px-3 py-1.5 text-white rounded text-xs font-medium transition-colors w-24" style={{backgroundColor: '#54af3a'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#4a9633'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#54af3a'}>
                               <UserPlus className="w-3 h-3 mr-1.5" />
                               <span className="hidden xl:inline">Add User</span>
                               <span className="xl:hidden">Add</span>
                             </button>
-                            <button className="inline-flex items-center justify-center px-3 py-1.5 bg-slate-600 text-white rounded text-xs font-medium hover:bg-slate-700 transition-colors w-24">
+                            <button className="inline-flex items-center justify-center px-3 py-1.5 text-white rounded text-xs font-medium transition-colors w-24" style={{backgroundColor: '#54af3a'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#4a9633'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#54af3a'}>
                               <Upload className="w-3 h-3 mr-1.5" />
                               <span className="hidden xl:inline">Upload</span>
                               <span className="xl:hidden">Upload</span>
@@ -541,19 +541,19 @@ function App() {
                         
                         {/* Mobile Action Buttons */}
                         <div className="lg:hidden mt-3 flex flex-wrap gap-2">
-                          <button className="inline-flex items-center px-2 py-1 bg-slate-600 text-white rounded text-xs font-medium hover:bg-slate-700 transition-colors">
+                          <button className="inline-flex items-center px-2 py-1 text-white rounded text-xs font-medium transition-colors" style={{backgroundColor: '#54af3a'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#4a9633'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#54af3a'}>
                             <Edit3 className="w-3 h-3 mr-1" />
                             Edit
                           </button>
-                          <button className="inline-flex items-center px-2 py-1 bg-slate-600 text-white rounded text-xs font-medium hover:bg-slate-700 transition-colors">
+                          <button className="inline-flex items-center px-2 py-1 text-white rounded text-xs font-medium transition-colors" style={{backgroundColor: '#54af3a'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#4a9633'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#54af3a'}>
                             <UserCheck className="w-3 h-3 mr-1" />
                             Shortlist
                           </button>
-                          <button className="inline-flex items-center px-2 py-1 bg-slate-600 text-white rounded text-xs font-medium hover:bg-slate-700 transition-colors">
+                          <button className="inline-flex items-center px-2 py-1 text-white rounded text-xs font-medium transition-colors" style={{backgroundColor: '#54af3a'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#4a9633'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#54af3a'}>
                             <UserPlus className="w-3 h-3 mr-1" />
                             Add User
                           </button>
-                          <button className="inline-flex items-center px-2 py-1 bg-slate-600 text-white rounded text-xs font-medium hover:bg-slate-700 transition-colors">
+                          <button className="inline-flex items-center px-2 py-1 text-white rounded text-xs font-medium transition-colors" style={{backgroundColor: '#54af3a'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#4a9633'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#54af3a'}>
                             <Upload className="w-3 h-3 mr-1" />
                             Upload
                           </button>
@@ -568,6 +568,7 @@ function App() {
                               <div className="flex items-start justify-between mb-2">
                                 <div className="flex-1">
                                   <div className="flex items-center space-x-2 mb-1">
+                                    <span className="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded">#{auction.id}</span>
                                     <h4 className="text-sm font-semibold text-gray-900">{auction.title}</h4>
                                     <div className="hidden sm:flex items-center space-x-2 text-sm text-gray-500">
                                       <Calendar className="w-4 h-4" />
@@ -587,8 +588,8 @@ function App() {
                                   
                                   <p className="text-gray-600 mb-2 text-xs">{auction.description}</p>
                                   
-                                  {/* Publish Checkbox and Action Buttons - Grouped Together */}
-                                  <div className="flex items-center space-x-3 mb-3">
+                                  {/* Publish Checkbox and Action Buttons - Right Aligned */}
+                                  <div className="flex items-center justify-end space-x-3 mb-3">
                                     <div className="flex items-center space-x-2">
                                       <input
                                         type="checkbox"
@@ -647,7 +648,7 @@ function App() {
                                       <div className="bg-green-50 rounded-lg p-1.5">
                                         <div className="flex items-center space-x-2 mb-1">
                                           <TrendingDown className="w-4 h-4 text-green-600" />
-                                          <span className="text-xs font-medium text-green-600 uppercase">Current Bid</span>
+                                          <span className="text-xs font-medium text-green-600 uppercase">{auction.status === 'closed' ? 'L1 Bid' : 'Current Bid'}</span>
                                         </div>
                                         <p className="text-sm font-bold text-green-700">₹{auction.currentBid.toLocaleString()}</p>
                                       </div>
