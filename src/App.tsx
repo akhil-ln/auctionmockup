@@ -131,6 +131,70 @@ const mockCompanyGroups: CompanyGroup[] = [
       }
     ]
   }
+  {
+    companyName: 'GlobalLogistics',
+    procurementName: 'International Freight Services ID:7890',
+    isExpanded: false,
+    auctions: [
+      {
+        id: '778901',
+        title: 'International Freight - Mumbai to Dubai',
+        description: 'International freight service for export cargo',
+        openingPrice: 320000,
+        bidDecrement: 2000,
+        duration: 20,
+        startDate: '25-06-2025',
+        startTime: '11:00:00',
+        status: 'upcoming',
+        participants: 18,
+      },
+      {
+        id: '778902',
+        title: 'Air Cargo - Delhi to Singapore',
+        description: 'Express air cargo service for time-sensitive goods',
+        openingPrice: 450000,
+        bidDecrement: 3000,
+        duration: 12,
+        startDate: '26-06-2025',
+        startTime: '09:30:00',
+        status: 'active',
+        participants: 22,
+        currentBid: 441000,
+      }
+    ]
+  },
+  {
+    companyName: 'FastTrack Logistics',
+    procurementName: 'Regional Distribution Network ID:8901',
+    isExpanded: false,
+    auctions: [
+      {
+        id: '889012',
+        title: 'Last Mile Delivery - Bangalore Network',
+        description: 'Last mile delivery services across Bangalore metropolitan area',
+        openingPrice: 180000,
+        bidDecrement: 800,
+        duration: 18,
+        startDate: '27-06-2025',
+        startTime: '13:45:00',
+        status: 'upcoming',
+        participants: 14,
+      },
+      {
+        id: '889013',
+        title: 'Cold Chain Transport - Hyderabad to Chennai',
+        description: 'Temperature-controlled transport for pharmaceutical goods',
+        openingPrice: 275000,
+        bidDecrement: 1500,
+        duration: 25,
+        startDate: '28-06-2025',
+        startTime: '08:15:00',
+        status: 'closed',
+        participants: 11,
+        currentBid: 268000,
+      }
+    ]
+  }
 ];
 
 function App() {
@@ -382,9 +446,9 @@ function App() {
                   return (
                     <div key={group.companyName} className="border border-gray-200 rounded-lg overflow-hidden">
                       {/* Company Header */}
-                      <div className="bg-gray-50 border-b border-gray-200 p-2">
+                      <div className="bg-gray-50 border-b border-gray-200 p-3">
                         <div className="flex items-center justify-between">
-                          <div className="flex items-center space-x-4">
+                          <div className="flex items-center space-x-3 flex-1 min-w-0">
                             <input
                               type="checkbox"
                               checked={selectedCompanies.includes(group.companyName)}
@@ -394,7 +458,7 @@ function App() {
                             
                             <button
                               onClick={() => toggleAccordion(group.companyName)}
-                              className="flex items-center space-x-2 text-left hover:bg-gray-100 rounded-lg p-1 -m-1 transition-colors"
+                              className="flex items-center space-x-2 text-left hover:bg-gray-100 rounded-lg p-1 -m-1 transition-colors flex-1 min-w-0"
                             >
                               {group.isExpanded ? (
                                 <ChevronDown className="w-5 h-5 text-gray-500" />
@@ -402,39 +466,50 @@ function App() {
                                 <ChevronRight className="w-5 h-5 text-gray-500" />
                               )}
                               
-                              <div className="flex items-center space-x-3">
+                              <div className="flex items-center space-x-3 flex-1 min-w-0">
                                 <div className="w-6 h-6 bg-blue-100 rounded-lg flex items-center justify-center">
                                   <Building2 className="w-4 h-4 text-blue-600" />
                                 </div>
-                                <div>
+                                <div className="min-w-0 flex-1">
                                   <h3 className="font-semibold text-gray-900 text-sm">{group.companyName}</h3>
-                                  <p className="text-xs text-gray-600">{group.procurementName}</p>
+                                  <p className="text-xs text-gray-600 truncate">{group.procurementName}</p>
                                 </div>
                               </div>
                             </button>
                           </div>
                           
-                          {/* Action Buttons - Inline with company name */}
-                          <div className="flex items-center space-x-2">
-                            <button className="inline-flex items-center px-2 py-1 bg-blue-600 text-white rounded text-xs font-medium hover:bg-blue-700 transition-colors">
-                              <Edit3 className="w-3 h-3 mr-1" />
-                              Edit Auctions
+                          {/* Action Buttons - Consistent width and spacing */}
+                          <div className="hidden lg:flex items-center space-x-2 ml-4">
+                            <button className="inline-flex items-center justify-center px-3 py-1.5 bg-blue-600 text-white rounded text-xs font-medium hover:bg-blue-700 transition-colors w-24">
+                              <Edit3 className="w-3 h-3 mr-1.5" />
+                              <span className="hidden xl:inline">Edit</span>
+                              <span className="xl:hidden">Edit</span>
                             </button>
-                            <button className="inline-flex items-center px-2 py-1 bg-green-600 text-white rounded text-xs font-medium hover:bg-green-700 transition-colors">
-                              <UserCheck className="w-3 h-3 mr-1" />
-                              Shortlist Transporters
+                            <button className="inline-flex items-center justify-center px-3 py-1.5 bg-green-600 text-white rounded text-xs font-medium hover:bg-green-700 transition-colors w-24">
+                              <UserCheck className="w-3 h-3 mr-1.5" />
+                              <span className="hidden xl:inline">Shortlist</span>
+                              <span className="xl:hidden">List</span>
                             </button>
-                            <button className="inline-flex items-center px-2 py-1 bg-purple-600 text-white rounded text-xs font-medium hover:bg-purple-700 transition-colors">
-                              <UserPlus className="w-3 h-3 mr-1" />
-                              Add User
+                            <button className="inline-flex items-center justify-center px-3 py-1.5 bg-purple-600 text-white rounded text-xs font-medium hover:bg-purple-700 transition-colors w-24">
+                              <UserPlus className="w-3 h-3 mr-1.5" />
+                              <span className="hidden xl:inline">Add User</span>
+                              <span className="xl:hidden">Add</span>
                             </button>
-                            <button className="inline-flex items-center px-2 py-1 bg-orange-600 text-white rounded text-xs font-medium hover:bg-orange-700 transition-colors">
-                              <Upload className="w-3 h-3 mr-1" />
-                              Bulk Upload
+                            <button className="inline-flex items-center justify-center px-3 py-1.5 bg-orange-600 text-white rounded text-xs font-medium hover:bg-orange-700 transition-colors w-24">
+                              <Upload className="w-3 h-3 mr-1.5" />
+                              <span className="hidden xl:inline">Upload</span>
+                              <span className="xl:hidden">Upload</span>
                             </button>
                           </div>
                           
-                          <div className="flex items-center space-x-4">
+                          {/* Mobile Action Menu */}
+                          <div className="lg:hidden">
+                            <button className="p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
+                              <MoreVertical className="w-4 h-4" />
+                            </button>
+                          </div>
+                          
+                          <div className="hidden lg:flex items-center space-x-4 ml-4">
                             {/* Participants Count - More Prominent */}
                             <div className="flex items-center space-x-2 bg-white rounded-lg px-2 py-1 border border-gray-200">
                               <Users className="w-4 h-4 text-blue-600" />
@@ -476,6 +551,34 @@ function App() {
                               <Settings className="w-4 h-4" />
                             </button>
                           </div>
+                          
+                          {/* Mobile Summary */}
+                          <div className="lg:hidden flex items-center space-x-2 ml-2">
+                            <div className="flex items-center space-x-1 bg-white rounded-lg px-2 py-1 border border-gray-200">
+                              <Users className="w-3 h-3 text-blue-600" />
+                              <span className="text-xs font-bold text-blue-600">{totalParticipants}</span>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        {/* Mobile Action Buttons */}
+                        <div className="lg:hidden mt-3 flex flex-wrap gap-2">
+                          <button className="inline-flex items-center px-2 py-1 bg-blue-600 text-white rounded text-xs font-medium hover:bg-blue-700 transition-colors">
+                            <Edit3 className="w-3 h-3 mr-1" />
+                            Edit
+                          </button>
+                          <button className="inline-flex items-center px-2 py-1 bg-green-600 text-white rounded text-xs font-medium hover:bg-green-700 transition-colors">
+                            <UserCheck className="w-3 h-3 mr-1" />
+                            Shortlist
+                          </button>
+                          <button className="inline-flex items-center px-2 py-1 bg-purple-600 text-white rounded text-xs font-medium hover:bg-purple-700 transition-colors">
+                            <UserPlus className="w-3 h-3 mr-1" />
+                            Add User
+                          </button>
+                          <button className="inline-flex items-center px-2 py-1 bg-orange-600 text-white rounded text-xs font-medium hover:bg-orange-700 transition-colors">
+                            <Upload className="w-3 h-3 mr-1" />
+                            Upload
+                          </button>
                         </div>
                       </div>
 
@@ -488,7 +591,7 @@ function App() {
                                 <div className="flex-1">
                                   <div className="flex items-center space-x-2 mb-1">
                                     <h4 className="text-sm font-semibold text-gray-900">{auction.title}</h4>
-                                    <div className="flex items-center space-x-2 text-sm text-gray-500">
+                                    <div className="hidden sm:flex items-center space-x-2 text-sm text-gray-500">
                                       <Calendar className="w-4 h-4" />
                                       <span className="text-xs">{auction.startDate} at {auction.startTime}</span>
                                     </div>
@@ -498,9 +601,15 @@ function App() {
                                     </div>
                                   </div>
                                   
+                                  {/* Mobile Date/Time */}
+                                  <div className="sm:hidden flex items-center space-x-2 text-sm text-gray-500 mb-2">
+                                    <Calendar className="w-4 h-4" />
+                                    <span className="text-xs">{auction.startDate} at {auction.startTime}</span>
+                                  </div>
+                                  
                                   <p className="text-gray-600 mb-2 text-xs">{auction.description}</p>
                                   
-                                  <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
+                                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
                                     <div className="bg-gray-50 rounded-lg p-1.5">
                                       <div className="flex items-center space-x-2 mb-1">
                                         <span className="text-xs font-medium text-gray-500 uppercase">Opening Price</span>
