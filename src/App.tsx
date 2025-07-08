@@ -131,6 +131,7 @@ const mockCompanyGroups: CompanyGroup[] = [
       }
     ]
   }
+  ,
   {
     companyName: 'GlobalLogistics',
     procurementName: 'International Freight Services ID:7890',
