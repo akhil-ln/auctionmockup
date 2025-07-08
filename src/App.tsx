@@ -285,7 +285,7 @@ function App() {
             <div className="flex items-center space-x-8">
               <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">L</span>
+                  <img src="/image.png" alt="LoRRI" className="w-8 h-8 object-contain" />
                 </div>
                 <div>
                   <h1 className="text-xl font-bold text-gray-900">LoRRI</h1>
@@ -481,22 +481,22 @@ function App() {
                           
                           {/* Action Buttons - Consistent width and spacing */}
                           <div className="hidden lg:flex items-center space-x-2 ml-4">
-                            <button className="inline-flex items-center justify-center px-3 py-1.5 text-white rounded text-xs font-medium transition-colors w-24" style={{backgroundColor: '#54af3a'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#4a9633'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#54af3a'}>
+                            <button className="inline-flex items-center justify-center px-3 py-1.5 bg-blue-500 hover:bg-blue-600 text-white rounded text-xs font-medium transition-colors w-24">
                               <Edit3 className="w-3 h-3 mr-1.5" />
                               <span className="hidden xl:inline">Edit</span>
                               <span className="xl:hidden">Edit</span>
                             </button>
-                            <button className="inline-flex items-center justify-center px-3 py-1.5 text-white rounded text-xs font-medium transition-colors w-24" style={{backgroundColor: '#54af3a'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#4a9633'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#54af3a'}>
+                            <button className="inline-flex items-center justify-center px-3 py-1.5 bg-green-500 hover:bg-green-600 text-white rounded text-xs font-medium transition-colors w-24">
                               <UserCheck className="w-3 h-3 mr-1.5" />
                               <span className="hidden xl:inline">Shortlist</span>
                               <span className="xl:hidden">List</span>
                             </button>
-                            <button className="inline-flex items-center justify-center px-3 py-1.5 text-white rounded text-xs font-medium transition-colors w-24" style={{backgroundColor: '#54af3a'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#4a9633'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#54af3a'}>
+                            <button className="inline-flex items-center justify-center px-3 py-1.5 bg-purple-500 hover:bg-purple-600 text-white rounded text-xs font-medium transition-colors w-24">
                               <UserPlus className="w-3 h-3 mr-1.5" />
                               <span className="hidden xl:inline">Add User</span>
                               <span className="xl:hidden">Add</span>
                             </button>
-                            <button className="inline-flex items-center justify-center px-3 py-1.5 text-white rounded text-xs font-medium transition-colors w-24" style={{backgroundColor: '#54af3a'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#4a9633'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#54af3a'}>
+                            <button className="inline-flex items-center justify-center px-3 py-1.5 bg-orange-500 hover:bg-orange-600 text-white rounded text-xs font-medium transition-colors w-24">
                               <Upload className="w-3 h-3 mr-1.5" />
                               <span className="hidden xl:inline">Upload</span>
                               <span className="xl:hidden">Upload</span>
@@ -541,19 +541,19 @@ function App() {
                         
                         {/* Mobile Action Buttons */}
                         <div className="lg:hidden mt-3 flex flex-wrap gap-2">
-                          <button className="inline-flex items-center px-2 py-1 text-white rounded text-xs font-medium transition-colors" style={{backgroundColor: '#54af3a'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#4a9633'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#54af3a'}>
+                          <button className="inline-flex items-center px-2 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded text-xs font-medium transition-colors">
                             <Edit3 className="w-3 h-3 mr-1" />
                             Edit
                           </button>
-                          <button className="inline-flex items-center px-2 py-1 text-white rounded text-xs font-medium transition-colors" style={{backgroundColor: '#54af3a'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#4a9633'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#54af3a'}>
+                          <button className="inline-flex items-center px-2 py-1 bg-green-500 hover:bg-green-600 text-white rounded text-xs font-medium transition-colors">
                             <UserCheck className="w-3 h-3 mr-1" />
                             Shortlist
                           </button>
-                          <button className="inline-flex items-center px-2 py-1 text-white rounded text-xs font-medium transition-colors" style={{backgroundColor: '#54af3a'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#4a9633'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#54af3a'}>
+                          <button className="inline-flex items-center px-2 py-1 bg-purple-500 hover:bg-purple-600 text-white rounded text-xs font-medium transition-colors">
                             <UserPlus className="w-3 h-3 mr-1" />
                             Add User
                           </button>
-                          <button className="inline-flex items-center px-2 py-1 text-white rounded text-xs font-medium transition-colors" style={{backgroundColor: '#54af3a'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#4a9633'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#54af3a'}>
+                          <button className="inline-flex items-center px-2 py-1 bg-orange-500 hover:bg-orange-600 text-white rounded text-xs font-medium transition-colors">
                             <Upload className="w-3 h-3 mr-1" />
                             Upload
                           </button>
@@ -588,55 +588,7 @@ function App() {
                                   
                                   <p className="text-gray-600 mb-2 text-xs">{auction.description}</p>
                                   
-                                  {/* Publish Checkbox and Action Buttons - Right Aligned */}
-                                  <div className="flex items-center justify-end space-x-3 mb-3">
-                                    <div className="flex items-center space-x-2">
-                                      <input
-                                        type="checkbox"
-                                        id={`publish-${auction.id}`}
-                                        className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                                        defaultChecked={auction.status !== 'upcoming'}
-                                      />
-                                      <label htmlFor={`publish-${auction.id}`} className="text-xs font-medium text-gray-700">
-                                        Publish
-                                      </label>
-                                    </div>
-                                    
-                                    <div className="flex items-center space-x-2">
-                                      {auction.status === 'upcoming' && (
-                                        <button className="inline-flex items-center px-3 py-1 bg-green-600 text-white rounded text-xs font-medium hover:bg-green-700 transition-colors">
-                                          <Play className="w-3 h-3 mr-1" />
-                                          Start Auction
-                                        </button>
-                                      )}
-                                      {auction.status === 'active' && (
-                                        <>
-                                          <button className="inline-flex items-center px-3 py-1 bg-yellow-600 text-white rounded text-xs font-medium hover:bg-yellow-700 transition-colors">
-                                            <Pause className="w-3 h-3 mr-1" />
-                                            Pause
-                                          </button>
-                                          <button className="inline-flex items-center px-3 py-1 bg-red-600 text-white rounded text-xs font-medium hover:bg-red-700 transition-colors">
-                                            <CheckCircle className="w-3 h-3 mr-1" />
-                                            Close Auction
-                                          </button>
-                                        </>
-                                      )}
-                                      {auction.status === 'paused' && (
-                                        <>
-                                          <button className="inline-flex items-center px-3 py-1 bg-green-600 text-white rounded text-xs font-medium hover:bg-green-700 transition-colors">
-                                            <Play className="w-3 h-3 mr-1" />
-                                            Resume
-                                          </button>
-                                          <button className="inline-flex items-center px-3 py-1 bg-red-600 text-white rounded text-xs font-medium hover:bg-red-700 transition-colors">
-                                            <CheckCircle className="w-3 h-3 mr-1" />
-                                            Close Auction
-                                          </button>
-                                        </>
-                                      )}
-                                     </div>
-                                  </div>
-                                  
-                                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
+                                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-2 mb-3">
                                     <div className="bg-gray-50 rounded-lg p-1.5">
                                       <div className="flex items-center space-x-2 mb-1">
                                         <span className="text-xs font-medium text-gray-500 uppercase">Opening Price</span>
@@ -677,6 +629,53 @@ function App() {
                                         <span className="text-xs font-medium text-blue-600 uppercase">Participants</span>
                                       </div>
                                       <p className="text-sm font-bold text-blue-700">{auction.participants}</p>
+                                    </div>
+                                    
+                                    {/* Publish Checkbox */}
+                                    <div className="bg-gray-50 rounded-lg p-1.5 flex flex-col justify-center">
+                                      <div className="flex items-center space-x-2">
+                                        <input
+                                          type="checkbox"
+                                          id={`publish-${auction.id}`}
+                                          className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                                          defaultChecked={auction.status !== 'upcoming'}
+                                        />
+                                        <label htmlFor={`publish-${auction.id}`} className="text-xs font-medium text-gray-700">
+                                          Publish
+                                        </label>
+                                      </div>
+                                    </div>
+                                    
+                                    {/* Action Buttons */}
+                                    <div className="bg-gray-50 rounded-lg p-1.5 flex items-center justify-center">
+                                      <div className="flex items-center space-x-1">
+                                        {auction.status === 'upcoming' && (
+                                          <button className="inline-flex items-center px-2 py-1 bg-green-600 text-white rounded text-xs font-medium hover:bg-green-700 transition-colors">
+                                            <Play className="w-3 h-3 mr-1" />
+                                            Start
+                                          </button>
+                                        )}
+                                        {auction.status === 'active' && (
+                                          <>
+                                            <button className="inline-flex items-center px-2 py-1 bg-yellow-600 text-white rounded text-xs font-medium hover:bg-yellow-700 transition-colors">
+                                              <Pause className="w-3 h-3" />
+                                            </button>
+                                            <button className="inline-flex items-center px-2 py-1 bg-red-600 text-white rounded text-xs font-medium hover:bg-red-700 transition-colors">
+                                              <CheckCircle className="w-3 h-3" />
+                                            </button>
+                                          </>
+                                        )}
+                                        {auction.status === 'paused' && (
+                                          <>
+                                            <button className="inline-flex items-center px-2 py-1 bg-green-600 text-white rounded text-xs font-medium hover:bg-green-700 transition-colors">
+                                              <Play className="w-3 h-3" />
+                                            </button>
+                                            <button className="inline-flex items-center px-2 py-1 bg-red-600 text-white rounded text-xs font-medium hover:bg-red-700 transition-colors">
+                                              <CheckCircle className="w-3 h-3" />
+                                            </button>
+                                          </>
+                                        )}
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
